@@ -1,0 +1,21 @@
+<!-- Q3/greet_by_time.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greeting App</title>
+</head>
+<body>
+    <h2>Enter the time:</h2>
+    <form method="post" action="{% url 'get_greeting' %}">
+        {% csrf_token %}
+        <label for="time">Time (24-hour format):</label>
+        <input type="text" name="time" id="time" required>
+        <button type="submit">Get Greeting</button>
+    </form>
+
+    {% if greeting %}
+        <h1>{{ greeting }}</h1>
+    {% endif %}
+</body>
+</html>
